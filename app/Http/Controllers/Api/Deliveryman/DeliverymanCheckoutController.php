@@ -9,7 +9,7 @@ use Entrega\Repositories\UserRepository;
 use Entrega\Services\OrderService;
 use Illuminate\Http\Request;
 
-use Entrega\Http\Requests;
+
 use Entrega\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use LucaDegasperi\OAuth2Server\Facades\Authorizer;
@@ -57,9 +57,12 @@ class DeliverymanCheckoutController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $idDeliveryman=Authorizer::getResourceOwnerId();
+       // $dados=$request->all();
+       // dd($request->get('status'));
         $order=$this->service->updateStatus($id,$idDeliveryman,$request->get('status'));
         if($order)
         {
+            //dd($order);
             return  $order;
         }
         return abort(400,"Pedido Não Encontrado!");
