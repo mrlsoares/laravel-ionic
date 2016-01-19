@@ -4,6 +4,7 @@ namespace Entrega\Http\Controllers\Api\Client;
 
 use Entrega\Http\Requests\AdminCategoyRequest;
 use Entrega\Http\Requests\AdminClientRequest;
+use Entrega\Http\Requests\CheckoutRequest;
 use Entrega\Repositories\CategoryRepository;
 use Entrega\Repositories\OrderRepository;
 use Entrega\Repositories\ProductRepository;
@@ -63,7 +64,7 @@ class ClientCheckoutController extends Controller
         return $order;
     }
 
-    public function store(AdminClientRequest $request)
+    public function store(CheckoutRequest $request)
     {
         $id=Authorizer::getResourceOwnerId();
         $dados=$request->all();
@@ -74,7 +75,7 @@ class ClientCheckoutController extends Controller
       return  $pedido;
     }
 
-    public function update(AdminCategoyRequest $request, $id)
+    public function update(CheckoutRequest $request, $id)
     {
         $dados=$request->all();
         $this->repository->update($dados,$id);
