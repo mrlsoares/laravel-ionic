@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "da6086c75e494b89a7fb464f9109e42c",
-    "content-hash": "03ffa9696a66a6143f8e69b3a1e5302f",
+    "hash": "f0f4222a8347e3d28969fb4acfc17310",
+    "content-hash": "5c9a64e7be392b840c7d6e95fef11500",
     "packages": [
         {
             "name": "bestmomo/scafold",
@@ -404,7 +404,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/aab87f0076b5af3b933601037ebd24acf2d7ffb4",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/705ae1a087406a9af30164f6a382a12763dcc3dd",
                 "reference": "22c06c504067cc52787f9fc4b04de4e496442212",
                 "shasum": ""
             },
@@ -532,7 +532,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/10111f558cd9ee08640a95bc0055bed896beaef3",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/c88b2d59a56ed2290fc5082a1a6099e357c9fdbc",
                 "reference": "10111f558cd9ee08640a95bc0055bed896beaef3",
                 "shasum": ""
             },
@@ -636,7 +636,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/2b0691b96bd5edd366cfb905bd9b5334d71b5f96",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dc5691b9a875961822aa713b8e77fb8b4a7a6de9",
                 "reference": "3130ff9232cef15883516a8d382af7f149677e0d",
                 "shasum": ""
             },
@@ -709,6 +709,69 @@
                 "storage"
             ],
             "time": "2016-01-02 01:11:39"
+        },
+        {
+            "name": "league/fractal",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/fractal.git",
+                "reference": "0f33054fc409ecd947525c767326a5879b475304"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/0f33054fc409ecd947525c767326a5879b475304",
+                "reference": "0f33054fc409ecd947525c767326a5879b475304",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "illuminate/contracts": "~5.0",
+                "mockery/mockery": "~0.9",
+                "pagerfanta/pagerfanta": "~1.0.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5",
+                "zendframework/zend-paginator": "~2.3"
+            },
+            "suggest": {
+                "illuminate/pagination": "The Illuminate Pagination component.",
+                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+                "zendframework/zend-paginator": "Zend Framework Paginator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "me@philsturgeon.uk",
+                    "homepage": "http://philsturgeon.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle the output of complex data structures ready for API output.",
+            "homepage": "http://fractal.thephpleague.com/",
+            "keywords": [
+                "api",
+                "json",
+                "league",
+                "rest"
+            ],
+            "time": "2016-01-19 13:06:34"
         },
         {
             "name": "league/oauth2-server",
@@ -2128,7 +2191,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/a69bdfc950e5097590f49aafecbfc88a6cbf290a",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/827febb0f15fd781cba52662700eef244d903f1f",
                 "reference": "af48c047b4aaf924f875b318c37f8c315308b12e",
                 "shasum": ""
             },
@@ -2809,7 +2872,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7f0787732c8472b4ade576236cf19e0e4f1c5e55",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/acbb9e4fdcb27a9b65426b3d09770db671296a40",
                 "reference": "d0896b45cbc66f60e957f19a95e826ccf7fbb321",
                 "shasum": ""
             },

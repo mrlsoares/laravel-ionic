@@ -3,6 +3,7 @@
 namespace Entrega\Http\Controllers;
 
 use Entrega\Http\Requests\AdminCategoyRequest;
+use Entrega\Http\Requests\CheckoutRequest;
 use Entrega\Repositories\CategoryRepository;
 use Entrega\Repositories\OrderRepository;
 use Entrega\Repositories\ProductRepository;
@@ -56,7 +57,7 @@ class CheckoutController extends Controller
         return view('customer.order.create',compact('products'));
     }
 
-    public function store(Request $request)
+    public function store(CheckoutRequest $request)
     {
         $dados=$request->all();
         $clienteId=$this->userRepository->find(Auth::user()->id)->client->id;
@@ -73,7 +74,7 @@ class CheckoutController extends Controller
         return view('.edit',compact('order'));
 
     }
-    public function update(AdminCategoyRequest $request, $id)
+    public function update(CheckoutRequest $request, $id)
     {
         $dados=$request->all();
         $this->repository->update($dados,$id);
