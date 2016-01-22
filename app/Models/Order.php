@@ -11,14 +11,7 @@ class Order extends Model implements Transformable
     use TransformableTrait;
 
     protected $fillable=['client_id','user_deliveryman_id','total','status'];
-    public function transform()
-    {
-        return [
-            'order'=>$this->id,
-            'order_items'=>$this->items,
-            'client'=>$this->client
-        ];
-    }
+
 
     public function cupom()
     {

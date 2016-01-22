@@ -2,6 +2,7 @@
 
 namespace Entrega\Repositories;
 
+use Entrega\Presenters\OrderPresenter;
 use Illuminate\Database\Eloquent\Collection;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -50,6 +51,6 @@ class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
     }
     public function presenter()
     {
-        return \Prettus\Repository\Presenter\ModelFractalPresenter::class;
+        return OrderPresenter::class;
     }
 }
