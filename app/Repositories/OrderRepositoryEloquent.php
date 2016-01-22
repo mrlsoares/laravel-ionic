@@ -14,6 +14,7 @@ use Entrega\Models\Order;
  */
 class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
 {
+
     public function getByIdAndDeliveryman($id,$idDeliveryman)
     {
         $result=$this->with(['items','client','cupom'])->findWhere([
@@ -46,5 +47,9 @@ class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+    public function presenter()
+    {
+        return \Prettus\Repository\Presenter\ModelFractalPresenter::class;
     }
 }
