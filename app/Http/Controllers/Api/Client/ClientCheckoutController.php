@@ -33,6 +33,7 @@ class ClientCheckoutController extends Controller
      * @var OrderService
      */
     private $service;
+    private $with=['client','cupom','items'];
 
     public function __construct(OrderRepository $repository,
                                 UserRepository $userRepository,
@@ -49,7 +50,10 @@ class ClientCheckoutController extends Controller
        $id=Authorizer::getResourceOwnerId();
        $clienteId=$this->userRepository->find($id)->client->id;
 //dd($clienteId);
-       $orders = $this->repository->with(['items'])->scopeQuery(function($query)use($clienteId){
+       $orders = $this->repository->skipPresenter(false)
+           ->with($this->with)
+
+           ->scopeQuery(function($query)use($clienteId){
             return $query->where('client_id','=',$clienteId);
        })->paginate();
 
@@ -57,11 +61,9 @@ class ClientCheckoutController extends Controller
    }
     public function show($id)
     {
-        $order =$this->repository->with(['items','client','cupom'])->find($id);
-        /*$order->items->each(function($item){
-            $item->product;
-        });*/
-        return $order;
+        return $this->repository
+            ->skipPresenter(false)
+            ->with($this->with)->find($id);;
     }
 
     public function store(CheckoutRequest $request)
@@ -71,16 +73,14 @@ class ClientCheckoutController extends Controller
         $clienteId=$this->userRepository->find($id)->client->id;
         $dados['client_id']=$clienteId;
        $o= $this->service->store($dados);
-        $pedido=$this->repository->with('items')->find($o->id);
+        $pedido=$this->repository
+            ->skipPresenter(false)
+            ->with($this->with)
+            ->find($o->id);
       return  $pedido;
     }
 
-    public function update(CheckoutRequest $request, $id)
-    {
-        $dados=$request->all();
-        $this->repository->update($dados,$id);
-        return  redirect()->route('customer.order.index');
-    }
+
 
 
 }

@@ -11,8 +11,8 @@ use Entrega\Models\Order;
  */
 class OrderTransformer extends TransformerAbstract
 {
-    protected $defaultIncludes=['cupom','items'];
-    //protected $availableIncludes=['cupom','items'];
+    //protected $defaultIncludes=['cupom','items'];
+    protected $availableIncludes=['cupom','items','client'];
     /**
      * Transform the \Order entity
      * @param \Order $model
@@ -38,6 +38,10 @@ class OrderTransformer extends TransformerAbstract
             return null;
         }
         return $this->item($model->cupom,new CupomTransformer());
+    }
+    public function includeClient(Order $model)
+    {
+        return $this->item($model->client,new ClientTransformer());
     }
     public function includeItems(Order $model)
     {
