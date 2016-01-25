@@ -38,7 +38,7 @@ class ClientService
     {
         $dados['user']['password']=bcrypt(123456);
         $user=$this->userRepository->create($dados['user']);
-        $userId=$user->user_id;
+        $userId=$user->id;
         $dados['user_id']=$userId;
         $this->clientRepository->create($dados);
     }
