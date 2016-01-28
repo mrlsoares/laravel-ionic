@@ -20,5 +20,17 @@ angular.module('starter', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-  });
+    
+  })
+
 })
+    .config(function($stateProvider){
+        $stateProvider.state('home',{
+            url:'/home',
+            templateUrl: 'templates/home.html'
+        })
+        .state('main',{
+            url:'/',
+            templateUrl: 'templates/main.html'
+        })
+});
