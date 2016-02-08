@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - entrega@localhost" uuid="1b5445f2-b7c6-41b4-979a-9fd48df08f55">
+    <database-info product="MySQL" version="5.5.5-10.0.22-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="entrega"/>
+    <table name="categorias" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="produtos_categoria_id_foreign" table="produtos" schema="" catalog="entrega" columns="categoria_id"/>
+    </table>
+    <table name="categories" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="products_category_id_foreign" table="products" schema="" catalog="entrega" columns="category_id"/>
+    </table>
+    <table name="clients" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="endereco" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="cidade" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uf" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cep" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cpf" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cnpj" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="razao_social" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="clients_user_id_foreign" columns="user_id" ref-table="users" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="clients_user_id_foreign" unique="false" columns="user_id"/>
+    </table>
+    <table name="cupoms" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="code" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="value" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
+      <column name="used" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="orders_cupom_id_foreign" table="orders" schema="" catalog="entrega" columns="cupom_id"/>
+    </table>
+    <table name="migrations" schema="" catalog="entrega" type="TABLE">
+      <column name="migration" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="oauth_access_token_scopes" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="access_token_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="scope_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_access_token_scopes_access_token_id_foreign" columns="access_token_id" ref-table="oauth_access_tokens" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="oauth_access_token_scopes_scope_id_foreign" columns="scope_id" ref-table="oauth_scopes" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="oauth_access_token_scopes_access_token_id_index" unique="false" columns="access_token_id"/>
+      <index name="oauth_access_token_scopes_scope_id_index" unique="false" columns="scope_id"/>
+    </table>
+    <table name="oauth_access_tokens" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="expire_time" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_access_tokens_session_id_foreign" columns="session_id" ref-table="oauth_sessions" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="oauth_access_token_scopes_access_token_id_foreign" table="oauth_access_token_scopes" schema="" catalog="entrega" columns="access_token_id"/>
+      <exported-key name="oauth_refresh_tokens_access_token_id_foreign" table="oauth_refresh_tokens" schema="" catalog="entrega" columns="access_token_id"/>
+      <index name="oauth_access_tokens_id_session_id_unique" unique="true" columns="id,session_id"/>
+      <index name="oauth_access_tokens_session_id_index" unique="false" columns="session_id"/>
+    </table>
+    <table name="oauth_auth_code_scopes" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="auth_code_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="scope_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_auth_code_scopes_auth_code_id_foreign" columns="auth_code_id" ref-table="oauth_auth_codes" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="oauth_auth_code_scopes_scope_id_foreign" columns="scope_id" ref-table="oauth_scopes" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="oauth_auth_code_scopes_auth_code_id_index" unique="false" columns="auth_code_id"/>
+      <index name="oauth_auth_code_scopes_scope_id_index" unique="false" columns="scope_id"/>
+    </table>
+    <table name="oauth_auth_codes" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="redirect_uri" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="expire_time" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_auth_codes_session_id_foreign" columns="session_id" ref-table="oauth_sessions" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="oauth_auth_code_scopes_auth_code_id_foreign" table="oauth_auth_code_scopes" schema="" catalog="entrega" columns="auth_code_id"/>
+      <index name="oauth_auth_codes_session_id_index" unique="false" columns="session_id"/>
+    </table>
+    <table name="oauth_client_endpoints" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="client_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="redirect_uri" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_client_endpoints_client_id_foreign" columns="client_id" ref-table="oauth_clients" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="oauth_client_endpoints_client_id_redirect_uri_unique" unique="true" columns="client_id,redirect_uri"/>
+    </table>
+    <table name="oauth_client_grants" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="client_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="grant_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_client_grants_client_id_foreign" columns="client_id" ref-table="oauth_clients" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="oauth_client_grants_grant_id_foreign" columns="grant_id" ref-table="oauth_grants" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="oauth_client_grants_client_id_index" unique="false" columns="client_id"/>
+      <index name="oauth_client_grants_grant_id_index" unique="false" columns="grant_id"/>
+    </table>
+    <table name="oauth_client_scopes" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="client_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="scope_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_client_scopes_client_id_foreign" columns="client_id" ref-table="oauth_clients" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="oauth_client_scopes_scope_id_foreign" columns="scope_id" ref-table="oauth_scopes" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="oauth_client_scopes_client_id_index" unique="false" columns="client_id"/>
+      <index name="oauth_client_scopes_scope_id_index" unique="false" columns="scope_id"/>
+    </table>
+    <table name="oauth_clients" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="secret" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="oauth_client_endpoints_client_id_foreign" table="oauth_client_endpoints" schema="" catalog="entrega" columns="client_id"/>
+      <exported-key name="oauth_client_grants_client_id_foreign" table="oauth_client_grants" schema="" catalog="entrega" columns="client_id"/>
+      <exported-key name="oauth_client_scopes_client_id_foreign" table="oauth_client_scopes" schema="" catalog="entrega" columns="client_id"/>
+      <exported-key name="oauth_sessions_client_id_foreign" table="oauth_sessions" schema="" catalog="entrega" columns="client_id"/>
+      <index name="oauth_clients_id_secret_unique" unique="true" columns="id,secret"/>
+    </table>
+    <table name="oauth_grant_scopes" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="grant_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="scope_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_grant_scopes_grant_id_foreign" columns="grant_id" ref-table="oauth_grants" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="oauth_grant_scopes_scope_id_foreign" columns="scope_id" ref-table="oauth_scopes" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="oauth_grant_scopes_grant_id_index" unique="false" columns="grant_id"/>
+      <index name="oauth_grant_scopes_scope_id_index" unique="false" columns="scope_id"/>
+    </table>
+    <table name="oauth_grants" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="oauth_client_grants_grant_id_foreign" table="oauth_client_grants" schema="" catalog="entrega" columns="grant_id"/>
+      <exported-key name="oauth_grant_scopes_grant_id_foreign" table="oauth_grant_scopes" schema="" catalog="entrega" columns="grant_id"/>
+    </table>
+    <table name="oauth_refresh_tokens" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="access_token_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="expire_time" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="access_token_id"/>
+      <foreign-key name="oauth_refresh_tokens_access_token_id_foreign" columns="access_token_id" ref-table="oauth_access_tokens" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="oauth_refresh_tokens_id_unique" unique="true" columns="id"/>
+    </table>
+    <table name="oauth_scopes" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="oauth_access_token_scopes_scope_id_foreign" table="oauth_access_token_scopes" schema="" catalog="entrega" columns="scope_id"/>
+      <exported-key name="oauth_auth_code_scopes_scope_id_foreign" table="oauth_auth_code_scopes" schema="" catalog="entrega" columns="scope_id"/>
+      <exported-key name="oauth_client_scopes_scope_id_foreign" table="oauth_client_scopes" schema="" catalog="entrega" columns="scope_id"/>
+      <exported-key name="oauth_grant_scopes_scope_id_foreign" table="oauth_grant_scopes" schema="" catalog="entrega" columns="scope_id"/>
+      <exported-key name="oauth_session_scopes_scope_id_foreign" table="oauth_session_scopes" schema="" catalog="entrega" columns="scope_id"/>
+    </table>
+    <table name="oauth_session_scopes" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="session_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="scope_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_session_scopes_scope_id_foreign" columns="scope_id" ref-table="oauth_scopes" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="oauth_session_scopes_session_id_foreign" columns="session_id" ref-table="oauth_sessions" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="oauth_session_scopes_scope_id_index" unique="false" columns="scope_id"/>
+      <index name="oauth_session_scopes_session_id_index" unique="false" columns="session_id"/>
+    </table>
+    <table name="oauth_sessions" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="client_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="owner_type" sqlType="ENUM" precision="7" scale="0" nullable="false" jdbcType="1" def="J3VzZXIn"/>
+      <column name="owner_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="client_redirect_uri" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="oauth_sessions_client_id_foreign" columns="client_id" ref-table="oauth_clients" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="oauth_access_tokens_session_id_foreign" table="oauth_access_tokens" schema="" catalog="entrega" columns="session_id"/>
+      <exported-key name="oauth_auth_codes_session_id_foreign" table="oauth_auth_codes" schema="" catalog="entrega" columns="session_id"/>
+      <exported-key name="oauth_session_scopes_session_id_foreign" table="oauth_session_scopes" schema="" catalog="entrega" columns="session_id"/>
+      <index name="oauth_sessions_client_id_owner_type_owner_id_index" unique="false" columns="client_id,owner_type,owner_id"/>
+    </table>
+    <table name="order_items" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="order_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
+      <column name="qtd" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="order_items_order_id_foreign" columns="order_id" ref-table="orders" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="order_items_product_id_foreign" columns="product_id" ref-table="products" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="order_items_order_id_foreign" unique="false" columns="order_id"/>
+      <index name="order_items_product_id_foreign" unique="false" columns="product_id"/>
+    </table>
+    <table name="orders" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="client_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_deliveryman_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
+      <column name="status" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="cupom_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="orders_client_id_foreign" columns="client_id" ref-table="users" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="orders_cupom_id_foreign" columns="cupom_id" ref-table="cupoms" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="orders_user_deliveryman_id_foreign" columns="user_deliveryman_id" ref-table="users" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="order_items_order_id_foreign" table="order_items" schema="" catalog="entrega" columns="order_id"/>
+      <index name="orders_client_id_foreign" unique="false" columns="client_id"/>
+      <index name="orders_cupom_id_foreign" unique="false" columns="cupom_id"/>
+      <index name="orders_user_deliveryman_id_foreign" unique="false" columns="user_deliveryman_id"/>
+    </table>
+    <table name="password_resets" schema="" catalog="entrega" type="TABLE">
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <index name="password_resets_email_index" unique="false" columns="email"/>
+      <index name="password_resets_token_index" unique="false" columns="token"/>
+    </table>
+    <table name="products" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="category_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="price" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="products_category_id_foreign" columns="category_id" ref-table="categories" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="order_items_product_id_foreign" table="order_items" schema="" catalog="entrega" columns="product_id"/>
+      <index name="products_category_id_foreign" unique="false" columns="category_id"/>
+    </table>
+    <table name="produtos" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoria_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nome" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descricao" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="preco" sqlType="DECIMAL" precision="8" scale="2" nullable="false" jdbcType="3"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="produtos_categoria_id_foreign" columns="categoria_id" ref-table="categorias" ref-schema="" ref-catalog="entrega" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="produtos_categoria_id_foreign" unique="false" columns="categoria_id"/>
+    </table>
+    <table name="users" schema="" catalog="entrega" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="role" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="J2NsaWVudCc="/>
+      <column name="remember_token" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="clients_user_id_foreign" table="clients" schema="" catalog="entrega" columns="user_id"/>
+      <exported-key name="orders_client_id_foreign" table="orders" schema="" catalog="entrega" columns="client_id"/>
+      <exported-key name="orders_user_deliveryman_id_foreign" table="orders" schema="" catalog="entrega" columns="user_deliveryman_id"/>
+      <index name="users_email_unique" unique="true" columns="email"/>
+    </table>
+  </data-source>
+</component>

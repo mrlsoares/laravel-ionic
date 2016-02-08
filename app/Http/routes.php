@@ -92,31 +92,30 @@ Route::group(['middleware' => 'web'], function () {
 
  //   Route::get('/home', 'HomeController@index');
 });
-Route::post('oauth/access_token', function() {
-    return Response::json(Authorizer::issueAccessToken());
-});
-Route::group(['prefix'=>'api','as'=>'api.','middleware'=>'oauth'],function(){
 
-    Route::group(['prefix'=>'v1','as'=>'v1.'],function(){
-        Route::group(['prefix'=>'client','as'=>'client.','middleware'=>'oauth.checkrole:client'],function(){
-            Route::Resource('order',
-                'Api\Client\ClientCheckoutController',
-                ['except'=>['create','edit','destroy']]
-            );
-
-        });
-        Route::group(['prefix'=>'deliveryman','as'=>'deliveryman.','middleware'=>'oauth.checkrole:deliveryman'],function(){
-            Route::Resource('order',
-                'Api\Deliveryman\DeliverymanCheckoutController',
-                ['except'=>['create','edit','destroy', 'store']]
-            );
-            Route::patch('order/{id}/update-status',[
-                'uses'=>'Api\Deliveryman\DeliverymanCheckoutController@updateStatus',
-                'as'  =>'order.update_status'
-            ]);
-        });
+Route::group(['middleware' => 'cors'], function(){
+    /*$router->get('api', 'ApiController@index');*/
+    Route::post('oauth/access_token', function() {
+        return Response::json(Authorizer::issueAccessToken());
     });
+    Route::group(['prefix'=>'client','as'=>'client.','middleware'=>'oauth.checkrole:client'],function(){
+        Route::Resource('order',
+            'Api\Client\ClientCheckoutController',
+            ['except'=>['create','edit','destroy']]
+        );
 
-
-
+    });
+    Route::group(['prefix'=>'deliveryman','as'=>'deliveryman.','middleware'=>'oauth.checkrole:deliveryman'],function() {
+        Route::Resource('order',
+            'Api\Deliveryman\DeliverymanCheckoutController',
+            ['except' => ['create', 'edit', 'destroy', 'store']]
+        );
+        Route::patch('order/{id}/update-status', [
+            'uses' => 'Api\Deliveryman\DeliverymanCheckoutController@updateStatus',
+            'as' => 'order.update_status'
+        ]);
+    });
 });
+
+
+
