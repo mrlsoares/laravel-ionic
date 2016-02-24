@@ -6,8 +6,10 @@
 angular.module(
     'starter', ['ionic','starter.controllers','angular-oauth2'
     ])
+    .value('meuValue','Marcos')
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,meuValue) {
+      //  console.log(meuValue);
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -48,6 +50,13 @@ angular.module(
             url:'/login',
             controller:'LoginCtrl',
             templateUrl: 'templates/login.html'
+        })
+        .state('home',{
+            url:'/home',
+            controller:function(){
+
+            },//'HomeCtrl',
+            templateUrl: 'templates/home.html'
         });
       //  $urlRouterProvider.otherwise('/');
 });
