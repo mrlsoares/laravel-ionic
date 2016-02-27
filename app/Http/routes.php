@@ -84,7 +84,14 @@ Route::group(['prefix'=>'customer','as'=>'customer.','middleware'=>'auth.checkro
 */
 
 
-
+Route::group(['prefix'=>'api','middleware' =>'oauth','as'=>'api.'], function () {
+    Route::get('/teste', ['as'=>'teste',function(){
+        return [
+            'success'=>true,
+            'mensagem'=>'Usuário tem acesso a rota teste '
+        ];
+    }]);
+});
 
 
 Route::group(['middleware' => 'web'], function () {

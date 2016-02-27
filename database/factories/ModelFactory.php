@@ -76,3 +76,10 @@ $factory->define(Entrega\Models\Cupom::class, function (Faker\Generator $faker) 
 
     ];
 });
+$factory->define(Entrega\Models\OAuthClients::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'name' => $faker->name,
+        'secret' => bcrypt(str_random(10)),
+    ];
+});

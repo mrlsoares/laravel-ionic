@@ -57,6 +57,16 @@ angular.module(
 
             },//'HomeCtrl',
             templateUrl: 'templates/home.html'
-        });
+        })
+        .state('client',{
+            abstract:true,
+            url:'/client',
+            template: '<ui-view/>'
+            })
+            .state('client.checkout',{
+                url:'/checkout',
+                controller:'ClientCheckoutCtrl',
+                templateUrl: 'templates/checkout.html'
+            });
       //  $urlRouterProvider.otherwise('/');
 });
