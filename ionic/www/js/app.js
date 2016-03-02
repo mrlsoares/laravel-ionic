@@ -3,12 +3,14 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+angular.module('starter.controllers',[]);
+angular.module('starter.services',[]);
 angular.module(
-    'starter', ['ionic','starter.controllers','angular-oauth2'
-    ])
-    .value('meuValue','Marcos')
-
-.run(function($ionicPlatform,meuValue) {
+    'starter', ['ionic','starter.controllers','starter.services','angular-oauth2','ngResource'])
+    .constant('appConfig',{
+         baseUrl: 'http://localhost:8000'
+    })
+.run(function($ionicPlatform) {
       //  console.log(meuValue);
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -28,10 +30,10 @@ angular.module(
   })
 
 })
-    .config(function($stateProvider, $urlRouterProvider,OAuthProvider,OAuthTokenProvider){
+    .config(function($stateProvider, $urlRouterProvider,OAuthProvider,OAuthTokenProvider,appConfig){
 
         OAuthProvider.configure({
-            baseUrl: 'http://localhost:8000',
+            baseUrl: appConfig.baseUrl,
             clientId: 'Appid01',
             clientSecret: 'secret', // optional
             grantPath:'/oauth/access_token'
@@ -61,12 +63,26 @@ angular.module(
         .state('client',{
             abstract:true,
             url:'/client',
-            template: '<ui-view/>'
+            template: '<ion-nav-view/>'
             })
             .state('client.checkout',{
                 url:'/checkout',
                 controller:'ClientCheckoutCtrl',
-                templateUrl: 'templates/checkout.html'
+                templateUrl: 'templates/client/checkout.html'
+            })
+            .state('client.checkout_item_detail',{
+                url:'/checkout/detail/:index',
+                controller:'ClientCheckoutDetailCtrl',
+                templateUrl: 'templates/client/checkout_item_detail.html'
+            })
+            .state('client.view_products',{
+                url:'/view_products',
+                controller:'ClientViewProductCtrl',
+                templateUrl: 'templates/client/view_products.html'
             });
-      //  $urlRouterProvider.otherwise('/');
-});
+
+
+
+        //  $urlRouterProvider.otherwise('/');
+
+}) ;

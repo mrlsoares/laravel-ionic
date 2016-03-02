@@ -71,8 +71,8 @@ $factory->define(Entrega\Models\OrderItem::class, function (Faker\Generator $fak
 });
 $factory->define(Entrega\Models\Cupom::class, function (Faker\Generator $faker) {
     return [
-        'code'=>rand(100,1000),
-        'value'=>rand(50,100),
+        'code'=>mt_rand(100,1000),
+        'value'=>mt_rand(50,100),
 
     ];
 });

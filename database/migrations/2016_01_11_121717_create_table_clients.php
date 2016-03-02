@@ -20,10 +20,10 @@ class CreateTableClients extends Migration
             $table->text('endereco');
             $table->string('cidade');
             $table->string('uf');
-            $table->string('cep');
-            $table->string('cpf');
-            $table->string('cnpj');
-            $table->string('razao_social');
+            $table->string('cep')->nullable();
+            $table->string('cpf')->nullable();
+            $table->string('cnpj')->nullable();
+            $table->string('razao_social')->nullable();
             $table->timestamps();
         });
     }
