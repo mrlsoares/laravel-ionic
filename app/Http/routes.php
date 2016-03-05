@@ -91,6 +91,7 @@ Route::group(['prefix'=>'api','middleware' =>'oauth','as'=>'api.'], function () 
             'mensagem'=>'Usuário tem acesso a rota teste '
         ];
     }]);
+    Route::get('authenticated', 'Api\Perfil\PerfilController@show');
 });
 
 

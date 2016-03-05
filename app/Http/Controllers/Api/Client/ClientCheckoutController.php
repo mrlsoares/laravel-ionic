@@ -52,7 +52,6 @@ class ClientCheckoutController extends Controller
 //dd($clienteId);
        $orders = $this->repository->skipPresenter(false)
            ->with($this->with)
-
            ->scopeQuery(function($query)use($clienteId){
             return $query->where('client_id','=',$clienteId);
        })->paginate();
