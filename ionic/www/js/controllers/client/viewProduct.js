@@ -15,6 +15,7 @@ angular.module('starter.controllers').controller('ClientViewProductCtrl', [
         $scope.addItem=function(item){
             item.qtd =1;
              $cart.addItem(item);
+            //console.log(item);
              $state.go('client.checkout');
         }
 }]);
