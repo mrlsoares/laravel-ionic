@@ -4,8 +4,8 @@
     <data-source name="MySQL - entrega@localhost" uuid="1b5445f2-b7c6-41b4-979a-9fd48df08f55">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <schema-pattern>entrega.*</schema-pattern>
-      <default-schemas>entrega.*</default-schemas>
+      <introspection-scope>entrega:*</introspection-scope>
+      <resolve-scope>entrega:*</resolve-scope>
     </data-source>
   </component>
 </project>

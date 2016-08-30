@@ -8,7 +8,7 @@ angular.module('starter.services',[]);
 angular.module(
     'starter', ['ionic','starter.controllers','starter.services','angular-oauth2','ngResource'])
     .constant('appConfig',{
-         baseUrl: 'http://localhost:8000'
+         baseUrl: 'http://192.168.0.10:8000'
     })
 .run(function($ionicPlatform) {
       //  console.log(meuValue);
@@ -77,6 +77,7 @@ angular.module(
                 templateUrl: 'templates/client/checkout_item_detail.html'
             })
             .state('client.checkout_successful',{
+                cache:false,
                 url:'/checkout/success',
                 templateUrl: 'templates/client/checkout_successful.html',
                 controller:'ClientCheckoutSuccessfulCtrl',
