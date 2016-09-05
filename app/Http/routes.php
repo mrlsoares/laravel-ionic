@@ -83,7 +83,7 @@ Route::group(['prefix'=>'customer','as'=>'customer.','middleware'=>'auth.checkro
 |
 */
 
-
+/*
 Route::group(['prefix'=>'api','middleware' =>'oauth','as'=>'api.'], function () {
     Route::get('/teste', ['as'=>'teste',function(){
         return [
@@ -91,9 +91,9 @@ Route::group(['prefix'=>'api','middleware' =>'oauth','as'=>'api.'], function () 
             'mensagem'=>'Usuário tem acesso a rota teste '
         ];
     }]);
-    Route::get('authenticated', 'Api\Perfil\PerfilController@show');
-});
 
+});
+*/
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
@@ -106,7 +106,9 @@ Route::group(['middleware' => 'cors'], function(){
     Route::post('oauth/access_token', function() {
         return Response::json(Authorizer::issueAccessToken());
     });
+
     Route::group(['prefix'=>'api','as'=>'api.','middleware'=>'oauth'],function(){
+
         Route::group(['prefix'=>'client','as'=>'client.','middleware'=>'oauth.checkrole:client'],function(){
             Route::Resource('order',
                 'Api\Client\ClientCheckoutController',
@@ -126,6 +128,7 @@ Route::group(['middleware' => 'cors'], function(){
             ]);
         });
         Route::get('cupom/{code}', 'Api\CupomController@show');
+        Route::get('authenticated', 'Api\UserController@authenticated');
     });
 
 });

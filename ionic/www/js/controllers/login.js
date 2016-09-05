@@ -11,8 +11,6 @@ angular.module('starter.controllers')
                 function(data)
                 {
                     $state.go('client.checkout');
-                   // console.log(data);
-                   // console.log($cookies.getObject('token'));
 
                 },
                 function(responseError)

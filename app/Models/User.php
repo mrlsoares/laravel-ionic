@@ -20,10 +20,12 @@ class User extends Authenticatable
     * @var array
     */
     protected $hidden = [
-    'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
+
     public function client()
     {
-         return $this->hasOne(Client::class);
+         return $this->hasOne(Client::class,'user_id','id');
     }
 }

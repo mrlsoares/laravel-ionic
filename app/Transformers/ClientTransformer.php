@@ -22,9 +22,15 @@ class ClientTransformer extends TransformerAbstract
     {
         return [
             'id'         => (int) $model->id,
-
-            /* place your other model properties here */
-
+            'user_id'=>(int)  $model->user_id,
+            'phone'=> $model->phone,
+            'endereco'=> $model->endereco,
+            'cidade'=> $model->cidade,
+            'uf'=> $model->uf,
+            'cep'=> $model->cep,
+            'cpf'=> $model->cpf,
+            'cnpj'=> $model->cnpj,
+            'razao_social'=> $model->razao_social,
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
         ];

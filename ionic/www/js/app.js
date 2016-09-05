@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter.controllers', []);
 angular.module('starter.services', []);
+angular.module('starter.filters', []);
 angular.module(
     'starter', ['ionic', 'starter.controllers', 'starter.services', 'angular-oauth2', 'ngResource', 'ngCordova'])
     .constant('appConfig', {
@@ -49,6 +50,7 @@ angular.module(
 
 
         $stateProvider
+
             .state('login', {
                 url: '/login',
                 controller: 'LoginCtrl',
@@ -65,7 +67,13 @@ angular.module(
             .state('client', {
                 abstract: true,
                 url: '/client',
-                template: '<ion-nav-view/>'
+                templateUrl: 'templates/client/menu.html',
+                controller: 'ClientMenuCtrl',
+            })
+            .state('client.order', {
+                url: '/order',
+                controller: 'ClientOrderCtrl',
+                templateUrl: 'templates/client/order.html'
             })
             .state('client.checkout', {
                 cache: false,
