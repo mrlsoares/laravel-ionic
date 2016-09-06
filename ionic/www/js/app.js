@@ -7,7 +7,9 @@ angular.module('starter.controllers', []);
 angular.module('starter.services', []);
 angular.module('starter.filters', []);
 angular.module(
-    'starter', ['ionic', 'starter.controllers', 'starter.services', 'angular-oauth2', 'ngResource', 'ngCordova'])
+    'starter', [
+                'ionic', 'starter.controllers', 'starter.services','starter.filters',
+                'angular-oauth2', 'ngResource', 'ngCordova'])
     .constant('appConfig', {
         baseUrl: 'http://192.168.0.10:8000'
     })
@@ -74,6 +76,11 @@ angular.module(
                 url: '/order',
                 controller: 'ClientOrderCtrl',
                 templateUrl: 'templates/client/order.html'
+            })
+            .state('client.view_order', {
+                url: '/view_order',
+                controller: 'ClientViewOrderCtrl',
+                templateUrl: 'templates/client/view_order.html'
             })
             .state('client.checkout', {
                 cache: false,
