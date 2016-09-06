@@ -78,7 +78,7 @@ angular.module(
                 templateUrl: 'templates/client/order.html'
             })
             .state('client.view_order', {
-                url: '/view_order',
+                url: '/view_order:id',
                 controller: 'ClientViewOrderCtrl',
                 templateUrl: 'templates/client/view_order.html'
             })

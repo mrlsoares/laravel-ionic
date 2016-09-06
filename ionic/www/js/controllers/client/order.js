@@ -13,10 +13,10 @@ angular.module('starter.controllers').controller('ClientOrderCtrl', [
                 $scope.$broadcast('scroll.refreshComplete');
             });
         }
-        $scope.openOrderDetail(order)
+        $scope.openOrderDetail=function(order)
         {
             $state.go('client.view_order',{id:order.id});
-        }
+        };
 
         function getOrders()
         {
