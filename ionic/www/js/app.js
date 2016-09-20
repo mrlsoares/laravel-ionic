@@ -103,7 +103,26 @@ angular.module(
                 url: '/view_products',
                 controller: 'ClientViewProductCtrl',
                 templateUrl: 'templates/client/view_products.html'
-            });
+            })
+            .state('deliveryman', {
+                abstract: true,
+                url: '/deliveryman',
+                templateUrl: 'templates/deliveryman/menu.html',
+                controller: 'DeliverymanMenuCtrl',
+            })
+            .state('deliveryman.order', {
+                url: '/order',
+                controller: 'DeliverymanOrderCtrl',
+                templateUrl: 'templates/deliveryman/order.html'
+            })
+            .state('deliveryman.view_order', {
+                cache: false,
+                url: '/view_order:id',
+                controller: 'DeliveryViewOrderCtrl',
+                templateUrl: 'templates/deliveryman/view_order.html'
+            })
+
+            ;
         $urlRouterProvider.otherwise('/login');
 
         $provide.decorator('OAuthToken', ['$localStorage', '$delegate', function ($localStorage, $delegate) {
